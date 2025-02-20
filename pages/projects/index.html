@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="sidebar">
+        <a href="index.html" class="logo">
+            <img src="m.svg" alt="Logo" />
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="thoughts.html">Thoughts</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="art.html">Art</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+    <main class="main-content">
+        <h1>Projects</h1>
+        <div class="card-grid">
+            <div class="card" data-project="project1">
+                <img src="https://placehold.co/600x400" alt="Project 1">
+                <div class="card-content">
+                    <h3>Featured Project</h3>
+                    <p>A brief description of the featured project and its key features.</p>
+                </div>
+            </div>
+            
+            <div class="card" data-project="project2">
+                <img src="https://placehold.co/600x400" alt="Project 2">
+                <div class="card-content">
+                    <h3>Recent Work</h3>
+                    <p>Overview of a recently completed project showcasing the latest technologies.</p>
+                </div>
+            </div>
+            
+            <div class="card" data-project="project3">
+                <img src="https://placehold.co/600x400" alt="Project 3">
+                <div class="card-content">
+                    <h3>Open Source</h3>
+                    <p>Contributing to the community through open source development.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal Overlays -->
+    <div class="modal-overlay" id="modal-project1">
+        <div class="modal">
+            <button class="modal-close">&times;</button>
+            <img src="https://placehold.co/1200x800" alt="Project 1 Detail">
+            <div class="modal-content">
+                <h2>Featured Project</h2>
+                <p>Detailed description of the featured project, including the problem it solves, technologies used, and key features implemented.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut.</p>
+                <a href="projects/featured.html" class="view-more">View Full Project</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modal-project2">
+        <div class="modal">
+            <button class="modal-close">&times;</button>
+            <img src="https://placehold.co/1200x800" alt="Project 2 Detail">
+            <div class="modal-content">
+                <h2>Recent Work</h2>
+                <p>In-depth look at this recent project, highlighting the development process and outcomes achieved.</p>
+                <p>Maecenas accumsan lacus vel facilisis volutpat est velit egestas.</p>
+                <a href="projects/recent-work.html" class="view-more">View Full Project</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modal-project3">
+        <div class="modal">
+            <button class="modal-close">&times;</button>
+            <img src="https://placehold.co/1200x800" alt="Project 3 Detail">
+            <div class="modal-content">
+                <h2>Open Source</h2>
+                <p>Details about contributions to open source projects and the impact on the developer community.</p>
+                <p>Vestibulum ut est augue. Pellentesque id orci quis enim blandit rutrum.</p>
+                <a href="projects/open-source.html" class="view-more">View Full Project</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Card click handlers
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('click', () => {
+                const projectId = card.getAttribute('data-project');
+                const modal = document.getElementById(`modal-${projectId}`);
+                modal.classList.add('active');
+            });
+        });
+
+        // Close button handlers
+        document.querySelectorAll('.modal-close').forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.target.closest('.modal-overlay').classList.remove('active');
+            });
+        });
+
+        // Close on overlay click
+        document.querySelectorAll('.modal-overlay').forEach(overlay => {
+            overlay.addEventListener('click', (e) => {
+                if (e.target === overlay) {
+                    overlay.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html> 
