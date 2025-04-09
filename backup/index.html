@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <button class="menu-toggle">☰</button>
+    <nav class="sidebar">
+        <a href="index.html" class="logo">
+            <img src="assets/images/m.svg" alt="Logo" />
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="pages/about.html">About</a></li>
+            <li><a href="pages/thoughts.html">Thoughts</a></li>
+            <li><a href="pages/projects.html">Projects</a></li>
+            <li><a href="pages/art.html">Art</a></li>
+            <li><a href="pages/contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="main-area">
+        <div class="main-content">
+            <h1 class="main-title">Hey there ✌️</h1>
+            <p class="main-subtitle">I'm Connor. I'm an entrepreneur, artist, and designer.</p>
+            <div class="main-image"></div>
+        </div>
+    </div>
+
+    
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const sidebar = document.querySelector('.sidebar');
+        
+        menuToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+        });
+        
+        // Close menu when clicking a link
+        const navLinks = document.querySelectorAll('.nav-links a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                sidebar.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html> 

@@ -19,6 +19,7 @@ body {
     color: var(--light-bg);
     min-height: 100vh;
     display: flex;
+    flex-direction: column;
 }
 
 .sidebar {
@@ -27,6 +28,9 @@ body {
     position: fixed;
     height: 100vh;
     border-right: 1px solid rgba(244, 244, 237, 0.1);
+    z-index: 100;
+    background-color: var(--dark-bg);
+    transition: transform 0.3s ease;
 }
 
 .logo {
@@ -227,6 +231,7 @@ p {
     top: 2rem;
     width: 280px;
     padding: 1rem;
+    z-index: 10;
 }
 
 .currently-header {
@@ -305,7 +310,6 @@ p {
     align-items: flex-start;
     justify-content: center;
     margin-left: 200px;
-    margin-right: 300px;
     min-height: 100vh;
     padding: 2rem;
     position: relative;
@@ -345,4 +349,149 @@ p {
     margin-bottom: 2rem;
     line-height: 1.4;
     opacity: 0.9;
+}
+
+.bridge-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+}
+
+.bridge-logo {
+    max-width: 300px;
+    margin: 0 auto 3rem;
+}
+
+.bridge-section {
+    margin-bottom: 3rem;
+    text-align: left;
+}
+
+.bridge-section h2 {
+    margin-bottom: 1.5rem;
+    font-family: 'Nitti', 'JetBrains Mono', monospace;
+    font-size: 2rem;
+}
+
+.bridge-section p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+/* Mobile menu button */
+.menu-toggle {
+    display: none;
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 200;
+    background: var(--card-bg);
+    border: none;
+    color: var(--light-bg);
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 1200px) {
+    .currently-section {
+        position: static;
+        width: 100%;
+        padding: 2rem;
+        margin-top: 2rem;
+    }
+    
+    .main-area {
+        margin-right: 0;
+        flex-direction: column;
+    }
+    
+    .main-image {
+        position: absolute;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+    }
+    
+    .menu-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: fixed;
+        top: 0;
+        left: 0;
+        transform: translateY(-100%);
+        border-right: none;
+        border-bottom: 1px solid rgba(244, 244, 237, 0.1);
+        padding: 1rem;
+    }
+    
+    .sidebar.active {
+        transform: translateY(0);
+    }
+    
+    .logo {
+        margin: 0 auto 1rem;
+    }
+    
+    .nav-links {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 1rem;
+    }
+    
+    .main-area {
+        margin-left: 0;
+        padding-top: 4rem;
+    }
+    
+    .main-title {
+        font-size: 2.5rem;
+    }
+    
+    .main-subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .main-image {
+        width: 90%;
+        height: 90%;
+        max-width: 400px;
+        max-height: 400px;
+    }
+    
+    .activity-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .social-links {
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 480px) {
+    .activity-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .main-title {
+        font-size: 2rem;
+    }
+    
+    .main-subtitle {
+        font-size: 1rem;
+    }
 } 

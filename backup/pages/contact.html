@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
+    <button class="menu-toggle">☰</button>
     <nav class="sidebar">
         <a href="../index.html" class="logo">
             <img src="../assets/images/m.svg" alt="Logo" />
@@ -36,5 +37,23 @@
             </a>
         </div>
     </main>
+    
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const sidebar = document.querySelector('.sidebar');
+        
+        menuToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+        });
+        
+        // Close menu when clicking a link
+        const navLinks = document.querySelectorAll('.nav-links a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                sidebar.classList.remove('active');
+            });
+        });
+    </script>
 </body>
 </html> 
